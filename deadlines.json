@@ -1,0 +1,46 @@
+{
+    "Physics": [
+        {
+            "task": "HW 1,2 and quiz 1,2",
+            "due_date": "2023-09-06 23:59:00-04:56"
+        },
+        {
+            "task": "Quiz Honorlock",
+            "due_date": "2023-09-13 23:59:00-0456"
+        },
+        {
+            "task": "HW Ch 03",
+            "due_date": "2023-09-13 23:59:00-0456"
+        },
+        {
+            "task": "hw ch 04",
+            "due_date": "2023-09-23 23:59:00-0456"
+        }
+    ],
+    "Algorithms for machine learning": [
+        {
+            "task": "Hw2: Tools and features",
+            "due_date": "2023-09-18 11:59:00-0456"
+        }
+    ],
+    "Discreet": [
+        {
+            "task": "Homework Assignment 1",
+            "due_date": "2023-09-05 23:59:00-0456"
+        },
+        {
+            "task": "Hw 2",
+            "due_date": "2023-09-19 11:59:00-0456"
+        }
+    ],
+    "Calculus 3": [
+        {
+            "task": "Calculus 3 Homework 12.4, 12.5, 12.6",
+            "due_date": "2023-09-10 23:59:00-0456"
+        },
+        {
+            "task": "Calculus 3 WebAssign Quiz 2",
+            "due_date": "2023-09-10 23:59:00-0456"
+        }
+    ]
+}
