@@ -15,12 +15,20 @@
         {
             "task": "hw ch 04",
             "due_date": "2023-09-23 23:59:00-0456"
+        },
+        {
+            "task": "Quiz Ch 04",
+            "due_date": "2023-09-23 23:59:00-0456"
         }
     ],
     "Algorithms for machine learning": [
         {
             "task": "Hw2: Tools and features",
             "due_date": "2023-09-18 11:59:00-0456"
+        },
+        {
+            "task": "Midterm 1: Data cleaning + Linear Regresssion",
+            "due_date": "2023-09-27 13:30:00-0456"
         }
     ],
     "Discreet": [
@@ -31,6 +39,18 @@
         {
             "task": "Hw 2",
             "due_date": "2023-09-19 11:59:00-0456"
+        },
+        {
+            "task": "Quiz 1",
+            "due_date": "2023-09-15 23:59:00-0456"
+        },
+        {
+            "task": "Exam 1 Includes Sets and Logic",
+            "due_date": "2023-09-21 09:00:00-0456"
+        },
+        {
+            "task": "HW3 Number THeory",
+            "due_date": "2023-10-09 23:59:00-0456"
         }
     ],
     "Calculus 3": [
@@ -41,6 +61,32 @@
         {
             "task": "Calculus 3 WebAssign Quiz 2",
             "due_date": "2023-09-10 23:59:00-0456"
+        },
+        {
+            "task": "Muddiest Point - Chapter 12 (Special Activity)",
+            "due_date": "2023-09-15 23:59:00-0456"
+        },
+        {
+            "task": "Quiz 3 Sections 13.1 to 13.3",
+            "due_date": "2023-09-17 23:59:00-0456"
+        },
+        {
+            "task": "Hw 13.1 to 13.3",
+            "due_date": "2023-09-17 23:59:00-0456"
+        },
+        {
+            "task": "Muddiest Point Chapter 13",
+            "due_date": "2023-09-22 23:59:00-0456"
+        },
+        {
+            "task": "WebAssign Quiz 4 13.4, 14.1, 14.2",
+            "due_date": "2023-09-24 23:59:00-0456"
+        }
+    ],
+    "Algorithm for Machine Learning": [
+        {
+            "task": "HW3: Linear regression",
+            "due_date": "2023-11-04 23:59:00-0456"
         }
     ]
 }
