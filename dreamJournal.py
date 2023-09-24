@@ -181,29 +181,108 @@ class DreamJournal:
 			print(f"An error occurred: {e}")
 				
 	def view_diary(self):
-			"""View all entries in the waking life diary."""
-			if os.path.exists(self.diary_filename):
-				with open(self.diary_filename, "r") as json_file:
-					entries = json.load(json_file)
+		"""View all entries in the waking life diary."""
+		if os.path.exists(self.diary_filename):
+			with open(self.diary_filename, "r") as json_file:
+				entries = json.load(json_file)
 
-				# Get terminal size
-				terminal_columns, _ = shutil.get_terminal_size()
+			for entry in entries:
+				timestamp = entry["Timestamp"]
+				entry_text = entry["Entry"]
 
-				for entry in entries:
-					timestamp = entry["Timestamp"]
-					entry_text = entry["Entry"]
+				self.print_text_with_terminal_width(f"Timestamp: {timestamp}")
+				self.print_text_with_terminal_width(f"Entry:\n{entry_text}\n")
+		else:
+			print("No entries found in the waking life diary.")
+				
+	def print_text_with_terminal_width(self, text):
+			"""Print text with line wrapping based on the terminal width."""
+			terminal_columns, _ = shutil.get_terminal_size()
+			wrapped_text = textwrap.fill(text, width=terminal_columns)
+			print(wrapped_text)
+				
+	def view_dream_entries(self):
+		"""View dream entries with filtering options."""
+		while True:
+			print("\nView Dream Entries Menu:")
+			print("1. View All Dream Entries")
+			print("2. Filter by Date")
+			print("3. Filter by Category")
+			print("4. Exit to Main Menu")
 
-					# Split the entry text into lines to fit the terminal width
-					entry_lines = entry_text.splitlines()
-					formatted_entry = ""
-					for line in entry_lines:
-						# Wrap lines to fit the terminal width
-						formatted_entry += "\n".join(textwrap.wrap(line, width=terminal_columns)) + "\n"
+			choice = input("Enter your choice (1/2/3/4): ").strip()
 
-					print(f"Timestamp: {timestamp}")
-					print(f"Entry:\n{formatted_entry}\n")
+			if choice == "1":
+				# View all dream entries
+				self.view_all_dream_entries()
+			elif choice == "2":
+				# Filter by date
+				date = input("Enter the date (YYYY-MM-DD) to filter by: ").strip()
+				self.view_dream_entries_by_date(date)
+			elif choice == "3":
+				# Filter by category
+				category_name = input("Enter the category name to filter by: ").strip()
+				self.view_dream_entries_by_category(category_name)
+			elif choice == "4":
+				# Exit to the main menu
+				break
 			else:
-				print("No entries found in the waking life diary.")
+				print("Invalid choice. Please select a valid option (1/2/3/4).")
+
+	def view_all_dream_entries(self):
+		"""View all dream entries."""
+		if os.path.exists(self.filename):
+			with open(self.filename, "r") as json_file:
+				dream_entries = json.load(json_file)
+
+			for i, entry in enumerate(dream_entries, start=1):
+				self.print_dream_entry(i, entry)
+		else:
+			print("No dream entries found.")
+
+	def view_dream_entries_by_date(self, date):
+		"""View dream entries filtered by date."""
+		if os.path.exists(self.filename):
+			with open(self.filename, "r") as json_file:
+				dream_entries = json.load(json_file)
+
+			filtered_entries = [entry for entry in dream_entries if entry["Date"] == date]
+
+			if filtered_entries:
+				for i, entry in enumerate(filtered_entries, start=1):
+					self.print_dream_entry(i, entry)
+			else:
+				print("No dream entries found for the given date.")
+		else:
+			print("No dream entries found.")
+
+	def view_dream_entries_by_category(self, category_name):
+		"""View dream entries filtered by category."""
+		if os.path.exists(self.filename):
+			with open(self.filename, "r") as json_file:
+				dream_entries = json.load(json_file)
+
+			filtered_entries = [entry for entry in dream_entries if category_name in entry["Categories"].values()]
+
+			if filtered_entries:
+				for i, entry in enumerate(filtered_entries, start=1):
+					self.print_dream_entry(i, entry)
+			else:
+				print(f"No dream entries found for the category: {category_name}")
+		else:
+			print("No dream entries found.")
+
+	def print_dream_entry(self, index, entry):
+		"""Print a single dream entry."""
+		print(f"\nDream Entry #{index}:")
+		print(f"Date: {entry['Date']}")
+		print("Categories:")
+		for category_name, category_value in entry["Categories"].items():
+			self.print_text_with_terminal_width(f"- {category_name}: {category_value}")
+		print("Dream:")
+		self.print_text_with_terminal_width(entry["Dream"])
+		print("Interpretation:")
+		self.print_text_with_terminal_width(entry["Interpretation"])
 
 				
 	def run_journal(self):
